@@ -9,7 +9,7 @@
             <span class="started-at pull-right"><%= job.started_at %></span>
           </div>
         </li>
-        <% end %>
+        <% end if @jobs[0..19] %>
       </ul>
     </div>
     <div class="col-xs-5 col-xs-offset-1 job-list job-list-right">
@@ -21,7 +21,7 @@
             <span class="started-at pull-right"><%= job.started_at %></span>
           </div>
         </li>
-        <% end %>
+        <% end if @jobs[20..39] %>
       </ul>
     </div>
     <div class="col-xs-12 text-center">
