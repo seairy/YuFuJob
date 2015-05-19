@@ -2,26 +2,26 @@
   <div class="row">
     <div class="col-xs-5 job-list job-list-left">
       <ul>
-        <% @jobs[0..19].each do |job| %>
+        <% @left_jobs.each do |job| %>
         <li>
           <div class="job-list-content">
             <span class="title"><%= link_to job.title, job %></span>
             <span class="started-at pull-right"><%= job.started_at %></span>
           </div>
         </li>
-        <% end if @jobs[0..19] %>
+        <% end if @left_jobs %>
       </ul>
     </div>
     <div class="col-xs-5 col-xs-offset-1 job-list job-list-right">
       <ul>
-        <% @jobs[20..39].each do |job| %>
+        <% @right_jobs.each do |job| %>
         <li>
           <div class="job-list-content">
             <span class="title"><%= link_to job.title, job %></span>
             <span class="started-at pull-right"><%= job.started_at %></span>
           </div>
         </li>
-        <% end if @jobs[20..39] %>
+        <% end if @right_jobs %>
       </ul>
     </div>
     <div class="col-xs-12 text-center">
