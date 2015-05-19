@@ -1,0 +1,65 @@
+<div class="pageheader">
+  <h2><i class="fa fa-pencil-square-o"></i> 职位管理 <span>新建</span></h2>
+</div>
+<div class="contentpanel">
+  <%= render "cms/commons/error_messages", target: @job %>
+  <div class="panel panel-dark">
+    <div class="panel-heading">
+      <h4 class="panel-title">职位信息</h4>
+    </div>
+    <div class="panel-body panel-body-nopadding">
+      <%= form_for [:cms, @job], html: { class: 'form-horizontal form-bordered' } do |f| %>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.city' %></label>
+          <div class="col-sm-6">
+            <%= f.collection_select :city_id, City.all, :id, :name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.title' %></label>
+          <div class="col-sm-6">
+            <%= f.text_field :title, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.content' %></label>
+          <div class="col-sm-8">
+            <%= f.cktext_area :content, cols: 40 %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.started_at' %></label>
+          <div class="col-sm-6">
+            <div class="input-group">
+              <%= f.text_field :started_at, class: 'form-control' %>
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'setting' %></label>
+          <div class="col-sm-8">
+            <div class="ckbox ckbox-default mt10">
+              <%= f.check_box :visible %>
+              <label for="job_visible">可见</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12 text-center">
+            <%= f.submit '提交', class: 'btn btn-primary' %>&nbsp;
+            <%= link_to '返回', [:cms, @job], class: 'btn btn-default' %>&nbsp;
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% content_for :javascript do %>
+  <script>
+    jQuery(document).ready(function(){
+      $('#job_city_id').chosen({'width': '100%', 'white-space': 'nowrap'});
+      $('#job_started_at').datepicker({dateFormat: 'yy-mm-dd'});
+    });
+  </script>
+<% end %>

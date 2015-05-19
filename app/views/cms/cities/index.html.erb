@@ -1,0 +1,40 @@
+<div class="pageheader">
+  <h2><i class="fa fa-list"></i> 城市管理 <span>列表</span></h2>
+</div>
+<div class="contentpanel">
+  <%= brac_flash %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-primary table-striped mb30">
+          <thead>
+            <tr>
+              <th><%= brac_t 'city.name' %></th>
+              <th><%= brac_t 'city.position' %></th>
+              <th><%= brac_t 'city.featured' %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="4"><%= brac_paginate @cities %></td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% @cities.each do |city| %>
+            <tr>
+              <td><%= city.name %></td>
+              <td><%= city.position %></td>
+              <td><%= brac_boolean city.featured? %></td>
+              <td class="table-action">
+                <%= link_to raw('<i class="fa fa-file-text-o"></i>'), [:cms, city] %>
+                <%= link_to raw('<i class="fa fa-pencil"></i>'), edit_cms_city_path(city) %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

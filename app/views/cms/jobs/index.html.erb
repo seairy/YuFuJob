@@ -1,0 +1,40 @@
+<div class="pageheader">
+  <h2><i class="fa fa-list"></i> 职位管理 <span>列表</span></h2>
+</div>
+<div class="contentpanel">
+  <%= brac_flash %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table table-primary table-striped mb30">
+          <thead>
+            <tr>
+              <th><%= brac_t 'job.city' %></th>
+              <th><%= brac_t 'job.title' %></th>
+              <th><%= brac_t 'job.started_at' %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <td colspan="4"><%= brac_paginate @jobs %></td>
+            </tr>
+          </tfoot>
+          <tbody>
+            <% @jobs.each do |job| %>
+            <tr>
+              <td><%= job.city.name %></td>
+              <td><%= job.title %></td>
+              <td><%= job.started_at %></td>
+              <td class="table-action">
+                <%= link_to raw('<i class="fa fa-file-text-o"></i>'), [:cms, job] %>
+                <%= link_to raw('<i class="fa fa-pencil"></i>'), edit_cms_job_path(job) %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

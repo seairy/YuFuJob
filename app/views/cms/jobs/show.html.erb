@@ -1,0 +1,49 @@
+<div class="pageheader">
+  <h2><i class="fa fa-file-text-o"></i> 职位管理 <span>查看</span></h2>
+</div>
+<div class="contentpanel">
+  <%= brac_flash %>
+  <div class="panel panel-dark">
+    <div class="panel-heading">
+      <h4 class="panel-title">职位信息</h4>
+    </div>
+    <div class="panel-body panel-body-nopadding">
+      <%= form_tag nil, class: 'form-horizontal form-bordered' do %>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.city' %></label>
+          <div class="col-sm-6">
+            <%= text_field_tag nil, @job.city.name, readonly: true, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.title' %></label>
+          <div class="col-sm-6">
+            <%= text_field_tag nil, @job.title, readonly: true, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.content' %></label>
+          <div class="col-sm-8">
+            <%= cktext_area nil, :zh_content, value: @job.content, ckeditor: { toolbar: 'mini', readOnly: true } %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.started_at' %></label>
+          <div class="col-sm-6">
+            <%= text_field_tag nil, @job.started_at, readonly: true, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'job.visible' %></label>
+          <div class="col-sm-6">
+            <%= text_field_tag nil, brac_boolean(@job.visible), readonly: true, class: 'form-control' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="panel-footer">
+      <%= link_to '返回', cms_jobs_path, class: 'btn btn-default' %>&nbsp;
+      <%= link_to '编辑', edit_cms_job_path(@job), class: 'btn btn-primary' %>&nbsp;
+    </div>
+  </div>
+</div>

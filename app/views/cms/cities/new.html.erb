@@ -1,0 +1,42 @@
+<div class="pageheader">
+  <h2><i class="fa fa-pencil-square-o"></i> 城市管理 <span>新建</span></h2>
+</div>
+<div class="contentpanel">
+  <%= render "cms/commons/error_messages", target: @city %>
+  <div class="panel panel-dark">
+    <div class="panel-heading">
+      <h4 class="panel-title">城市信息</h4>
+    </div>
+    <div class="panel-body panel-body-nopadding">
+      <%= form_for [:cms, @city], html: { class: 'form-horizontal form-bordered' } do |f| %>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'city.name' %></label>
+          <div class="col-sm-6">
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'city.position' %></label>
+          <div class="col-sm-6">
+            <%= f.text_field :position, class: 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label"><%= brac_t 'setting' %></label>
+          <div class="col-sm-8">
+            <div class="ckbox ckbox-default mt10">
+              <%= f.check_box :featured %>
+              <label for="city_featured">首页展示</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12 text-center">
+            <%= f.submit '提交', class: 'btn btn-primary' %>&nbsp;
+            <%= link_to '返回', [:cms, @city], class: 'btn btn-default' %>&nbsp;
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
