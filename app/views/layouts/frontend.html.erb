@@ -28,7 +28,7 @@
               <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                   <% @cities.featured.each do |city| %>
-                  <li><%= raw(' class="actived"') if @city.try(&:id) == city.id %>><%= link_to city.name, city %></li>
+                  <li<%= raw(' class="actived"') if @city.try(&:id) == city.id %>><%= link_to city.name, city %></li>
                   <% end %>
                   <li class="last<%= ' actived' unless @city %>"><%= link_to '更多', more_cities_path %></li>
                 </ul>
