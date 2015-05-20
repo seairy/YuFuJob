@@ -11,6 +11,13 @@ body {
   background-color: #1e1e1e;
 }
 
+.footer {
+  list-style: none;
+  li {
+    line-height: 26px;
+  }
+}
+
 .logo {
   img {
     padding: 16px 0;
