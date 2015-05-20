@@ -12,9 +12,8 @@ body {
 }
 
 .footer {
-  list-style: none;
-  li {
-    line-height: 26px;
+  div [class*="col-xs-12"] {
+    line-height: 30px;
   }
 }
 
