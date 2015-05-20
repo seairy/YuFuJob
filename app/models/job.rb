@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Job < ActiveRecord::Base
   belongs_to :city
   scope :sorted, -> { order(started_at: :desc) }

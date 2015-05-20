@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateCkeditorAssets < ActiveRecord::Migration
   def change
     create_table :ckeditor_assets do |t|
