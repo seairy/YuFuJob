@@ -1,31 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-5 job-list job-list-left">
-      <ul>
-        <% @left_jobs.each do |job| %>
-        <li>
-          <div class="job-list-content">
-            <span class="title"><%= link_to job.title, job %>（<%= job.city.name %>）</span>
-            <span class="started-at pull-right"><%= job.started_at %></span>
-          </div>
-        </li>
-        <% end if @left_jobs %>
-      </ul>
-    </div>
-    <div class="col-xs-5 col-xs-offset-1 job-list job-list-right">
-      <ul>
-        <% @right_jobs.each do |job| %>
-        <li>
-          <div class="job-list-content">
-            <span class="title"><%= link_to job.title, job %>（<%= job.city.name %>）</span>
-            <span class="started-at pull-right"><%= job.started_at %></span>
-          </div>
-        </li>
-        <% end if @right_jobs %>
-      </ul>
-    </div>
-    <div class="col-xs-12 text-center">
-      <%= paginate @jobs %>
-    </div>
+<div class="row">
+  <div class="col-xs-5 job-list job-list-left">
+    <ul>
+      <% @left_jobs.each do |job| %>
+      <li>
+        <div class="job-list-content">
+          <span class="title"><%= link_to job.title, job %>（<%= job.city.name %>）</span>
+          <span class="started-at pull-right"><%= job.started_at %></span>
+        </div>
+      </li>
+      <% end if @left_jobs %>
+    </ul>
+  </div>
+  <div class="col-xs-5 col-xs-offset-1 job-list job-list-right">
+    <ul>
+      <% @right_jobs.each do |job| %>
+      <li>
+        <div class="job-list-content">
+          <span class="title"><%= link_to job.title, job %>（<%= job.city.name %>）</span>
+          <span class="started-at pull-right"><%= job.started_at %></span>
+        </div>
+      </li>
+      <% end if @right_jobs %>
+    </ul>
+  </div>
+  <div class="col-xs-12 text-center">
+    <%= paginate @jobs %>
   </div>
 </div>
