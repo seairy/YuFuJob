@@ -6,6 +6,7 @@ body {
 
 .content-wrap {
   padding-top: 20px;
+  padding-bottom: -20px;
   background-color: #f7f7f7;
 }
 
@@ -39,7 +40,10 @@ body {
   margin-top: 20px;
 }
 
-nav {
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  min-height: 20px;
   background-color: #333;
   li {
     margin: 0;
@@ -62,6 +66,16 @@ nav {
       border-right: 1px #eee solid;
     }
   }
+}
+
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
 }
 
 .job-list {
