@@ -105,6 +105,28 @@ body {
   }
 }
 
+.pagination {
+  li {
+    a {
+      color: #666;
+    }
+  }
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  color: #999;
+}
+
+a {
+  color: inherit;
+  &:hover, &:focus {
+    color: inherit;
+  }
+}
+
 @media (min-width: 768px) {
   .navbar-nav > li {
     padding: 0;
