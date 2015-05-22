@@ -40,8 +40,13 @@ class Cms::JobsController < Cms::BaseController
     redirect_to cms_jobs_path, notice: '删除成功！'
   end
 
-  protected
+  def toggle_visible
+    @job = Job.find(params[:id])
+    @job.update!(visible: !@job.visible?)
+    redirect_to cms_jobs_path(page: params[:page]), notice: '更新显示状态成功！'
+  end
 
+  protected
   def job_params
     params.require(:job).permit!
   end

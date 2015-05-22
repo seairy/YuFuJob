@@ -8,12 +8,15 @@ Rails.application.routes.draw do
         get :more
       end
     end
-    resources :jobs
   end
   namespace :cms do
     root 'jobs#index'
     resources :cities
-    resources :jobs
+    resources :jobs do
+      member do
+        get :toggle_visible
+      end
+    end
     resource :profile do
       get 'edit_password'
       put 'update_password'

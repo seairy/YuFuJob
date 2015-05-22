@@ -12,6 +12,7 @@
               <th><%= brac_t 'job.city' %></th>
               <th><%= brac_t 'job.title' %></th>
               <th><%= brac_t 'job.started_at' %></th>
+              <th><%= brac_t 'job.visible_state' %></th>
               <th></th>
             </tr>
           </thead>
@@ -26,9 +27,21 @@
               <td><%= job.city.name %></td>
               <td><%= job.title %></td>
               <td><%= job.started_at %></td>
+              <td>
+                <% if job.visible? %>
+                <span class="label label-success">可见</span>
+                <% else %>
+                <span class="label label-danger">隐藏</span>
+                <% end %>
+              </td>
               <td class="table-action">
                 <%= link_to raw('<i class="fa fa-file-text-o"></i>'), [:cms, job] %>
                 <%= link_to raw('<i class="fa fa-pencil"></i>'), edit_cms_job_path(job) %>
+                <% if job.visible? %>
+                <%= link_to raw('<i class="fa fa-eye-slash"></i>'), toggle_visible_cms_job_path(job, page: params[:page]) %>
+                <% else %>
+                <%= link_to raw('<i class="fa fa-eye"></i>'), toggle_visible_cms_job_path(job, page: params[:page]) %>
+                <% end %>
               </td>
             </tr>
             <% end %>

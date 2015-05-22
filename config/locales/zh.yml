@@ -225,5 +225,6 @@ zh:
         content: 内容
         started_at: 开始日期
         visible: 可见
+        visible_state: 显示状态
     errors:
       <<: *errors
