@@ -8,6 +8,7 @@ Rails.application.routes.draw do
         get :more
       end
     end
+    resources :jobs
   end
   namespace :cms do
     root 'jobs#index'
