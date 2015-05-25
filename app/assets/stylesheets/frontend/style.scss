@@ -79,14 +79,17 @@ body {
 }
 
 .job-list {
-  li {
-    list-style: none;
-    padding: 6px 0;
-    a {
-      color: #666;
-    }
-    .started-at {
-      color: #666;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      padding: 6px 0;
+      a {
+        color: #666;
+      }
+      .started-at {
+        color: #666;
+      }
     }
   }
 }
