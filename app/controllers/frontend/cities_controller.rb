@@ -6,14 +6,14 @@ class Frontend::CitiesController < Frontend::BaseController
     rescue ActiveRecord::RecordNotFound
       City.featured.first
     end
-    @jobs = @city.jobs.sorted.page(params[:page]).per(40)
+    @jobs = @city.jobs.visible.sorted.page(params[:page]).per(40)
     @left_jobs = @jobs.map.each_with_index{|job, i| job if i.even?}.compact
     @right_jobs = @jobs.map.each_with_index{|job, i| job if i.odd?}.compact
     @title = @city.name
   end
 
   def more
-    @jobs = Job.where(city_id: City.unfeatured.map(&:id)).sorted.page(params[:page]).per(40)
+    @jobs = Job.where(city_id: City.unfeatured.map(&:id)).visible.sorted.page(params[:page]).per(40)
     @left_jobs = @jobs.map.each_with_index{|job, i| job if i.even?}.compact
     @right_jobs = @jobs.map.each_with_index{|job, i| job if i.odd?}.compact
     @title = '更多'
