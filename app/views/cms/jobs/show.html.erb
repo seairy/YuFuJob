@@ -44,6 +44,7 @@
     <div class="panel-footer">
       <%= link_to '返回', cms_jobs_path, class: 'btn btn-default' %>&nbsp;
       <%= link_to '编辑', edit_cms_job_path(@job), class: 'btn btn-primary' %>&nbsp;
+      <%= link_to '删除', [:cms, @job], method: :delete, data: { confirm: '确定要删除吗？' }, class: 'btn btn-danger' %>
     </div>
   </div>
 </div>
